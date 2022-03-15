@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Connexion {
-    private static String URL = "jdbc:sqlite:C:\\Users\\Sofiane\\Desktop\\java\\rmi\\RMI_app_repartie\\src\\main\\resources\\librairie.db";
+    private static String URL = "jdbc:sqlite:RMI_app_repartie\\src\\main\\resources\\librairie.db";
+    //private static String URL = "jdbc:sqlite:librairie.db";
     private static String DRIVER = "org.sqlite.JDBC";
 
     public static Connection createConnexion() {
