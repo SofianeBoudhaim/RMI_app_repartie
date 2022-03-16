@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Connexion {
-    private static String URL = "jdbc:sqlite:RMI_app_repartie\\src\\main\\resources\\librairie.db";
+    private static String URL = "jdbc:sqlite:D:\\LP GL\\_AppRep\\dev\\RMI_app_repartie\\src\\main\\resources\\librairie.db";
     //private static String URL = "jdbc:sqlite:librairie.db";
     private static String DRIVER = "org.sqlite.JDBC";
 
@@ -70,7 +70,7 @@ public class Connexion {
         resultSet.close();
         return l;
     }
-//test
+
     public static Livre getLivreByTitre(String titre) throws SQLException {
         String qry = "SELECT * FROM livre WHERE titre=" + titre;
         Livre l = null;
