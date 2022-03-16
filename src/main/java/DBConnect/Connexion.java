@@ -70,7 +70,7 @@ public class Connexion {
         resultSet.close();
         return l;
     }
-
+//test
     public static Livre getLivreByTitre(String titre) throws SQLException {
         String qry = "SELECT * FROM livre WHERE titre=" + titre;
         Livre l = null;
