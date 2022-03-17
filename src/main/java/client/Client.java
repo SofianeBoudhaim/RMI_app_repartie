@@ -18,7 +18,8 @@ public class Client {
         List<Livre> list = livreService.getLivres();
         System.out.println(list);
 
-        livreService.ajouterLivre(new Livre(3, "Je sais pas", 33.2));
+        Livre lll = new Livre("test", 12);
+        livreService.ajouterLivre(lll);
         list = livreService.getLivres();
         System.out.println(list);
 

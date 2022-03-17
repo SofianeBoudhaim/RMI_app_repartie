@@ -17,6 +17,13 @@ public class Livre implements Serializable {
         this.prix = prix;
     }
 
+    public Livre(String titre, double prix){
+        this.titre = titre;
+        this.prix = prix;
+    }
+
+
+
     public Livre() {
     }
 
@@ -44,10 +51,12 @@ public class Livre implements Serializable {
         this.prix = prix;
     }
 
+
     @Override
     public String toString() {
         return "Livre{" +
-                "titre='" + titre + '\'' +
+                "id=" + id +
+                ", titre='" + titre + '\'' +
                 ", prix=" + prix +
                 '}';
     }

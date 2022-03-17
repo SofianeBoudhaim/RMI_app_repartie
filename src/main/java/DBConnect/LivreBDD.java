@@ -38,16 +38,22 @@ public class LivreBDD {
     public static void ajouterLivre(Livre livre) throws SQLException {
         //liste de tout les livres
 
+        List<Livre> l = getLivres();
 
-        Connection connection = createConnexion();
-        PreparedStatement st = connection.prepareStatement("INSERT INTO livre VALUES (?, ?, ?, ?)") ;
-        st.setInt(1, livre.getId());
-        st.setString(2, livre.getTitre());
-        st.setDouble(3, livre.getPrix());
-        st.setInt(4, 1);
+        if(!l.contains(livre)){
+            Connection connection = createConnexion();
+            PreparedStatement st = connection.prepareStatement("INSERT INTO livre (titre, prix, quantite) VALUES (?, ?, ?)") ;
+            st.setString(1, livre.getTitre());
+            st.setDouble(2, livre.getPrix());
+            st.setInt(3, 1);
 
-        st.executeUpdate();
-        st.close();
+            st.executeUpdate();
+            st.close();
+            connection.close();
+        }
+        else{
+            System.out.println("Livre déjà existant");
+        }
 
     }
 
