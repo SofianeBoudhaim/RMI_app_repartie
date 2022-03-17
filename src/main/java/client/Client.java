@@ -13,8 +13,14 @@ import java.util.List;
 public class Client {
     public static void main(String[] args) throws MalformedURLException, NotBoundException, RemoteException, SQLException {
 
-        LivreService service = (LivreService) Naming.lookup("rmi://localhost:5099/Librairie");
-        List<Livre> list = service.getLivres();
+        LivreService livreService = (LivreService) Naming.lookup("rmi://localhost:5099/Librairie");
+
+        List<Livre> list = livreService.getLivres();
+        System.out.println(list);
+
+        Livre lll = new Livre("test", 12);
+        livreService.ajouterLivre(lll);
+        list = livreService.getLivres();
         System.out.println(list);
 
 

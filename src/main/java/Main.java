@@ -6,20 +6,12 @@ import java.util.List;
 import DBConnect.*;
 import modele.Livre;
 
-import static DBConnect.Connexion.createConnexion;
-
 
 public class Main {
     public static void main(String[] args) throws SQLException {
 
-        List<Livre> l = DBConnect.Connexion.getLivres();
-        Livre l1 = DBConnect.Connexion.getLivreById(3);
-
-        /*
-        for (Livre livre : l) {
-            System.out.println(livre.toString());
-        }
-         */
+        List<Livre> l = DBConnect.LivreBDD.getLivres();
+        Livre l1 = DBConnect.LivreBDD.getLivreById(3);
 
         if(l1!=null){
             System.out.println(l1);
