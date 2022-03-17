@@ -2,6 +2,8 @@ package modele;
 
 import java.io.Serializable;
 
+
+//Liste des livres
 public class Livre implements Serializable {
 
 
@@ -41,8 +43,6 @@ public class Livre implements Serializable {
     public void setPrix(double prix) {
         this.prix = prix;
     }
-
-
 
     @Override
     public String toString() {
