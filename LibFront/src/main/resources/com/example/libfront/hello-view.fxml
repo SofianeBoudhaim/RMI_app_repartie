@@ -2,13 +2,17 @@
 
 <?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
-
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
 
-
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libfront.HelloController">
    <children>
       <TitledPane animated="false" layoutX="390.0" layoutY="8.0" text="untitled">
         <content>
@@ -22,13 +26,25 @@
             <Blend />
          </effect>
       </TitledPane>
-      <Button layoutX="154.0" layoutY="303.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="78.0" text="Button" />
-      <Label layoutX="47.0" layoutY="247.0" prefHeight="32.0" prefWidth="78.0" text="CodeBoutique" />
-      <TextField layoutX="151.0" layoutY="247.0" prefHeight="32.0" prefWidth="164.0" />
-      <TextField layoutX="150.0" layoutY="136.0" prefHeight="32.0" prefWidth="164.0" />
-      <Label layoutX="47.0" layoutY="136.0" prefHeight="32.0" prefWidth="78.0" text="Identifiant" />
-      <Label layoutX="47.0" layoutY="184.0" prefHeight="32.0" prefWidth="78.0" text="Password" />
-      <TextField layoutX="150.0" layoutY="184.0" prefHeight="32.0" prefWidth="164.0" />
+      <Button layoutX="154.0" layoutY="303.0" mnemonicParsing="false" onAction="#SwitchToVitrine" prefHeight="42.0" prefWidth="78.0" text="Button" />
+      <ToolBar layoutX="47.0" layoutY="247.0" prefHeight="42.0" prefWidth="276.0">
+         <items>
+            <Label layoutX="47.0" layoutY="247.0" prefHeight="32.0" prefWidth="78.0" text="CodeBoutique" />
+            <TextField layoutX="151.0" layoutY="247.0" prefHeight="32.0" prefWidth="164.0" />
+         </items>
+      </ToolBar>
+      <ToolBar layoutX="45.0" layoutY="125.0" prefHeight="42.0" prefWidth="276.0">
+         <items>
+            <Label layoutX="47.0" layoutY="136.0" prefHeight="32.0" prefWidth="78.0" text="Identifiant" />
+            <TextField layoutX="150.0" layoutY="136.0" prefHeight="32.0" prefWidth="164.0" />
+         </items>
+      </ToolBar>
+      <ToolBar layoutX="47.0" layoutY="184.0" prefHeight="42.0" prefWidth="276.0">
+         <items>
+            <Label layoutX="47.0" layoutY="184.0" prefHeight="32.0" prefWidth="78.0" text="Password" />
+            <TextField layoutX="150.0" layoutY="184.0" prefHeight="32.0" prefWidth="164.0" />
+         </items>
+      </ToolBar>
       <Text layoutX="36.0" layoutY="73.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="LibraiWeb connexion" textAlignment="CENTER" wrappingWidth="293.13671875">
          <font>
             <Font size="20.0" />

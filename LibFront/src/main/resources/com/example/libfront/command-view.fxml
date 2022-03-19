@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Détail de la commande après paiement -->
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libfront.HelloController">
+   <children>
+      <Button layoutX="284.0" layoutY="423.0" mnemonicParsing="false" onAction="#SwitchToVitrine" text="Départ">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <TableView layoutX="77.0" layoutY="145.0" prefHeight="248.0" prefWidth="466.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Boutique" />
+          <TableColumn prefWidth="75.0" text="Article" />
+            <TableColumn prefWidth="75.0" text="quantité" />
+            <TableColumn prefWidth="75.0" text="Prix" />
+            <TableColumn prefWidth="75.0" text="Montant" />
+        </columns>
+      </TableView>
+      <Text layoutX="77.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Votre commande du ">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="242.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="date">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="77.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A bien été enregistré, pour un montant de ">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="398.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mt" wrappingWidth="41.203125">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
