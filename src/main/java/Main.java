@@ -1,9 +1,6 @@
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.SQLOutput;
 import java.util.List;
 
-import DBConnect.*;
 import modele.Livre;
 
 

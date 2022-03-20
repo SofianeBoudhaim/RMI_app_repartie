@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libfront.HelloController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libfront.HelloController">
    <children>
       <TitledPane animated="false" layoutX="390.0" layoutY="8.0" text="untitled">
         <content>
@@ -26,7 +19,6 @@
             <Blend />
          </effect>
       </TitledPane>
-      <Button layoutX="154.0" layoutY="303.0" mnemonicParsing="false" onAction="#SwitchToVitrine" prefHeight="42.0" prefWidth="78.0" text="Button" />
       <ToolBar layoutX="47.0" layoutY="247.0" prefHeight="42.0" prefWidth="276.0">
          <items>
             <Label layoutX="47.0" layoutY="247.0" prefHeight="32.0" prefWidth="78.0" text="CodeBoutique" />
@@ -50,5 +42,19 @@
             <Font size="20.0" />
          </font>
       </Text>
+      <ToolBar layoutX="83.0" layoutY="312.0" prefHeight="40.0" prefWidth="200.0">
+        <items>
+          <Button mnemonicParsing="false" onAction="#SwitchToVitrine" text="Connect">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#SwitchToUsers" prefHeight="42.0" prefWidth="78.0" text="+ user">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+        </items>
+      </ToolBar>
    </children>
 </Pane>

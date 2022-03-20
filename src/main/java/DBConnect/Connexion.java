@@ -1,13 +1,9 @@
 package DBConnect;
 
-import modele.Livre;
-
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Connexion {
-    private static String URL = "jdbc:sqlite:RMI_app_repartie\\src\\main\\resources\\librairie.db";
+    private static String URL = "jdbc:sqlite:D:\\LP GL\\_AppRep\\dev\\RMI_app_repartie\\src\\main\\resources\\librairie.db";
     //private static String URL = "jdbc:sqlite:librairie.db";
     private static String DRIVER = "org.sqlite.JDBC";
 

@@ -67,7 +67,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" layoutX="170.0" layoutY="170.0" lineSpacing="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="44.0" prefWidth="150.0" text="Valider &gt;" textAlignment="CENTER" translateX="30.0">
+            <Button alignment="CENTER" layoutX="170.0" layoutY="170.0" lineSpacing="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#SwitchToPaiement" prefHeight="44.0" prefWidth="150.0" text="Valider &gt;" textAlignment="CENTER" translateX="30.0">
                <font>
                   <Font size="20.0" />
                </font>

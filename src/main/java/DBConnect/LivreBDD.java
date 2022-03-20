@@ -1,7 +1,6 @@
 package DBConnect;
 
 import modele.Livre;
-import DBConnect.Connexion;
 
 import java.sql.*;
 import java.util.ArrayList;

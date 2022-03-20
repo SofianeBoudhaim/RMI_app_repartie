@@ -15,6 +15,12 @@ public class Client {
         this.password = password;
     }
 
+    public Client(int id, String name, String iMail) {
+        this.id = id;
+        this.nom = nom;
+        this.mail = mail;
+    }
+
     public int getId() {
         return id;
     }
