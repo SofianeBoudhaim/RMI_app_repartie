@@ -69,7 +69,6 @@ public class LivreBDD {
 
         statement = connection.createStatement();
         resultSet = statement.executeQuery(qry);
-
         if(resultSet.next()) {
             do {
                 String titre = resultSet.getString("titre");

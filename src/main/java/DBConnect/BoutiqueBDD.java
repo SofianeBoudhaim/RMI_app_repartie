@@ -38,7 +38,7 @@ public class BoutiqueBDD {
 
     public static Boutique getBoutiqueByNom(String name) throws SQLException {
         //liste de tout les boutiques
-        String qry = "SELECT * FROM boutique WHERE name ="+name;
+        String qry = "SELECT * FROM boutique WHERE nom =" + name;
         Boutique b = null;
 
         Connection connection = createConnexion();
@@ -47,14 +47,13 @@ public class BoutiqueBDD {
 
         statement = connection.createStatement();
         resultSet = statement.executeQuery(qry);
-        if(resultSet.next()) {
+        if (resultSet.next()) {
             do {
                 int id = resultSet.getInt("id");
                 String departement = resultSet.getString("departement");
                 b = new Boutique(name, departement);
             }
-        while (resultSet.next()) ;
-
+            while (resultSet.next());
         }
         connection.close();
         statement.close();

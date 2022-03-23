@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="librairie" uuid="e756d471-4ca6-460a-a89d-e6e4f82f92dd">
+    <data-source source="LOCAL" name="librairie" uuid="6895a941-8fda-4274-8119-fa97cbc70fa6">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:D:\LP GL\_AppRep\dev\RMI_app_repartie\src\main\resources\librairie.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\sofia\Desktop\projects\flutter\rmi\RMI_app_repartie\src\main\resources\librairie.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
-      <libraries>
-        <library>
-          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.36.0.3/sqlite-jdbc-3.36.0.3.jar</url>
-        </library>
-      </libraries>
     </data-source>
   </component>
 </project>

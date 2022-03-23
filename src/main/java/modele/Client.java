@@ -1,11 +1,15 @@
 package modele;
 
-public class Client {
+import java.io.Serializable;
+
+public class Client implements Serializable {
     private int id;
     private String nom;
     private String prenom;
     private String mail;
     private String password;
+    private String compteB;
+    private String passwordB;
 
     public Client(int id, String nom, String prenom, String mail, String password) {
         this.id = id;
@@ -61,5 +65,16 @@ public class Client {
         this.password = password;
     }
 
-
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", mail='" + mail + '\'' +
+                ", password='" + password + '\'' +
+                ", compteB='" + compteB + '\'' +
+                ", passwordB='" + passwordB + '\'' +
+                '}';
+    }
 }
