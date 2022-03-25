@@ -1,7 +1,11 @@
 package modele;
 
 public class Banque {
-    private Client client;
-    private String identifiant;
+    private String prenom;
+    private String nom;
+    private double solde;
+    private String codeIdentifiant;
     private String password;
+
+
 }

@@ -1,20 +1,20 @@
 package modele;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /*
     Panier d'un client, rataché à son ID pour le retrouver
  */
-public class Commande {
+public class Commande implements Serializable {
 
-    private int idClient;
     private List<Livre> panier = new ArrayList<Livre>();
 
-    public Commande(List<Livre> panier, Client client) {
-        this.idClient = client.getId();
+    public Commande(List<Livre> panier) {
         this.panier = panier;
     }
+
 
     public Commande(){
         this.panier = new ArrayList<Livre>();
@@ -23,7 +23,6 @@ public class Commande {
     public List<Livre> getPanier() {
         return panier;
     }
-
 
     public void ajouterAuPanier(Livre livre){
         panier.add(livre);

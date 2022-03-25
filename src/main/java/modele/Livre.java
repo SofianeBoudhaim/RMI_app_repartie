@@ -1,13 +1,14 @@
 package modele;
 
-import java.io.Serial;
+
+//import java.io.Serial;
 import java.io.Serializable;
 
 
 //Liste des livres
 public class Livre implements Serializable {
 
-    @Serial
+
     private static final long serialVersionUID = 1190476516911661480L;
     private int id;
     private String titre;

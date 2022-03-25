@@ -1,6 +1,7 @@
 package modele;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Client implements Serializable {
     private int id;
@@ -8,6 +9,7 @@ public class Client implements Serializable {
     private String prenom;
     private String mail;
     private String password;
+    private Commande panier = new Commande();
     private String compteB;
     private String passwordB;
 
@@ -63,6 +65,14 @@ public class Client implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Commande getPanier(){
+        return panier;
+    }
+
+    public void ajouterPanier(Livre l){
+        panier.ajouterAuPanier(l);
     }
 
     @Override
