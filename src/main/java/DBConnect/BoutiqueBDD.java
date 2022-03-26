@@ -1,6 +1,7 @@
 package DBConnect;
 
 import modele.Boutique;
+import modele.Livre;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -36,6 +37,29 @@ public class BoutiqueBDD {
         return b;
     }
 
+    public static Boutique getBoutiqueById(int id) throws SQLException {
+        String qry = "SELECT * FROM boutique WHERE id=" + id;
+        Boutique b = null;
+
+        Connection connection = createConnexion();
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        statement = connection.createStatement();
+        resultSet = statement.executeQuery(qry);
+        if(resultSet.next()) {
+            do {
+                String titre = resultSet.getString("nom");
+                String adresse = resultSet.getString("adresse");
+                b = new Boutique(id, titre, adresse);
+            } while (resultSet.next());
+        }
+        connection.close();
+        statement.close();
+        resultSet.close();
+        return b;
+    }
+
     public static Boutique getBoutiqueByNom(String name) throws SQLException {
         //liste de tout les boutiques
         String qry = "SELECT * FROM boutique WHERE nom =" + name;
@@ -51,7 +75,7 @@ public class BoutiqueBDD {
             do {
                 int id = resultSet.getInt("id");
                 String departement = resultSet.getString("departement");
-                b = new Boutique(name, departement);
+                b = new Boutique(id, name);
             }
             while (resultSet.next());
         }

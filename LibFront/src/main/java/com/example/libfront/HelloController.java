@@ -1,24 +1,48 @@
 package com.example.libfront;
 
+import com.example.modele.Boutique;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class HelloController {
+public class HelloController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    String choixBoutique;
+
+    @FXML
+    private TextField inputpass;
+
+    @FXML
+    private TextField inputboutique;
+
+    @FXML
+    private TextField inputname;
 
     @FXML
     private Label welcomeText;
+
+    @FXML
+    private ListView<String> lvBoutiques;
+
+    String[] book = {"cool", "breef", "trois"};
 
     @FXML
     protected void onHelloButtonClick() {
@@ -51,15 +75,17 @@ public class HelloController {
     }
 
     public void SwitchToPaiement(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("paiement-dialog.fxml"));
-        Parent parent = fxmlLoader.load();
-        PaimentController paieController = fxmlLoader.<PaimentController>getController();
+        Parent root =  FXMLLoader.load(getClass().getResource("paiement-dialog.fxml"));
+        //Parent root = fxmlLoader.load();
+       // PaimentController paieController = fxmlLoader.<PaimentController>getController();
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+      // stage.initModality(Modality.APPLICATION_MODAL);
+        scene = new Scene(root);
 
-        Scene scene = new Scene(parent, 300, 200);
-        Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
+       // Scene scene = new Scene(parent, 300, 200);
+       // Stage stage = new Stage();
         stage.setScene(scene);
-        stage.showAndWait();
+        stage.show();
     }
 
     public void SwitchToCommande(ActionEvent event) throws IOException {
@@ -75,5 +101,17 @@ public class HelloController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        lvBoutiques.getItems().addAll(book);
+        lvBoutiques.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+               choixBoutique = lvBoutiques.getSelectionModel().getSelectedItem();
+                inputboutique.setText(choixBoutique);
+            }
+        });
     }
 }

@@ -9,19 +9,69 @@ public class Boutique implements Serializable {
     private int id;
     private String nom;
     private String adresse;
-    private String departement;
-    //proposition : contient l'ID d'un livre, et le stock de ce livre dans la boutique
     private HashMap<Integer, Integer> livreStock = new HashMap<>();
 
+    public int getId() {
+        return id;
+    }
 
-    public Boutique(int id, String nom) {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public String getDepartement() {
+        return departement;
+    }
+
+    public void setDepartement(String departement) {
+        this.departement = departement;
+    }
+
+    private String departement;
+
+    public HashMap<Integer, Integer> getLivreStock() {
+        return livreStock;
+    }
+
+    public void setLivreStock(HashMap<Integer, Integer> livreStock) {
+        this.livreStock = livreStock;
+    }
+
+    public Boutique(int id, String nom, String adresse) {
         this.id = id;
         this.nom = nom;
     }
 
 
-    public Boutique(String nom, String departement) {
+    public Boutique(int id, String nom) {
         this.nom = nom;
         this.departement = departement;
+    }
+
+    @Override
+    public String toString() {
+        return "Boutique{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", adresse='" + adresse + '\'' +
+                ", departement='" + departement + '\'' +
+                ", livreStock=" + livreStock +
+                '}';
     }
 }

@@ -24,4 +24,11 @@ public class Boutique implements Serializable {
         this.nom = nom;
         this.departement = departement;
     }
+    @Override
+    public String toString() {
+        return "Boutique{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                '}';
+    }
 }
