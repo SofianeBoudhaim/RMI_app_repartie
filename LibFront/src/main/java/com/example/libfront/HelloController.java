@@ -42,7 +42,6 @@ public class HelloController implements Initializable {
     @FXML
     private ListView<String> lvBoutiques;
 
-    String[] book = {"cool", "breef", "trois"};
 
     @FXML
     protected void onHelloButtonClick() {
@@ -102,6 +101,9 @@ public class HelloController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+
+    String[] book = {"cool", "breef", "trois"};
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
