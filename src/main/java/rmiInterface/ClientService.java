@@ -14,4 +14,6 @@ public interface ClientService extends Remote {
     List<Client> getClients() throws  RemoteException, SQLException;
     Client getClientByMail(String mail) throws  RemoteException, SQLException;
     Client getClientByID(int id) throws  RemoteException, SQLException;
+    //ajouter client
+    //connection client
 }

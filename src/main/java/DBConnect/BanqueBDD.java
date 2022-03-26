@@ -13,7 +13,7 @@ import static DBConnect.Connexion.createConnexion;
 
 public class BanqueBDD {
 
-    public static boolean getConnectionBanque(String identifiant, String password, double cout) throws SQLException {
+    public static boolean getConnectionBanque(String identifiant, String password) throws SQLException {
         //liste de tout les boutiques
         String qry = "SELECT * FROM banque WHERE codeIdentifiant = '" + identifiant + "' AND password = '" + password  + "'";
         Client c = null;
@@ -34,7 +34,34 @@ public class BanqueBDD {
         connection.close();
         statement.close();
         resultSet.close();
-        if(soldeBanque != null && soldeBanque.doubleValue() >= cout){
+        if(soldeBanque != null){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public static boolean soldeSuffisante(String identifiant, String password, double cout) throws SQLException {
+        String qry = "SELECT * FROM banque WHERE codeIdentifiant = '" + identifiant + "' AND password = '" + password  + "'";
+        Client c = null;
+        Double soldeBanque = Double.parseDouble(null);
+
+        Connection connection = createConnexion();
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        statement = connection.createStatement();
+        resultSet = statement.executeQuery(qry);
+        if (resultSet.next()) {
+            do {
+                soldeBanque = resultSet.getDouble("solde");
+            }
+            while (resultSet.next());
+        }
+        connection.close();
+        statement.close();
+        resultSet.close();
+        if(soldeBanque >= cout){
             return true;
         }else{
             return false;

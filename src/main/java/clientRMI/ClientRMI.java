@@ -14,6 +14,7 @@ public class ClientRMI {
     public static void main(String[] args) throws MalformedURLException, NotBoundException, RemoteException, SQLException {
 
         LivreService livreService = (LivreService) Naming.lookup("rmi://localhost:5099/Librairie");
+
         ClientService clientService = (ClientService) Naming.lookup("rmi://localhost:5099/Client");
 
         List<Livre> livres = livreService.getLivres();
@@ -28,5 +29,8 @@ public class ClientRMI {
 
         client.ajouterPanier(livreService.getLivreByID(1));
         System.out.println(client.getPanier());
+
+
+
     }
 }
