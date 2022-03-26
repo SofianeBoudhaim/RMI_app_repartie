@@ -1,5 +1,6 @@
 package rmiServer;
 
+import DBConnect.BanqueBDD;
 import rmiInterface.BanqueService;
 import rmiInterface.ClientService;
 
@@ -15,6 +16,11 @@ public class ServantBanque extends UnicastRemoteObject implements BanqueService 
 
     @Override
     public boolean verifierConnexion(String codeIdentifiant, String password) throws RemoteException, SQLException {
-        return false;
+        return BanqueBDD.getConnectionBanque(codeIdentifiant, password);
+    }
+
+    @Override
+    public boolean verifierSolde(String codeIdentifiant, String password, double cout) throws RemoteException, SQLException {
+        return BanqueBDD.soldeSuffisante(codeIdentifiant, password, cout);
     }
 }
