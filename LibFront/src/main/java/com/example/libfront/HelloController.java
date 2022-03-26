@@ -73,19 +73,7 @@ public class HelloController implements Initializable {
         stage.show();
     }
 
-    public void SwitchToPaiement(ActionEvent event) throws IOException {
-        Parent root =  FXMLLoader.load(getClass().getResource("paiement-dialog.fxml"));
-        //Parent root = fxmlLoader.load();
-       // PaimentController paieController = fxmlLoader.<PaimentController>getController();
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-      // stage.initModality(Modality.APPLICATION_MODAL);
-        scene = new Scene(root);
 
-       // Scene scene = new Scene(parent, 300, 200);
-       // Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-    }
 
     public void SwitchToCommande(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("command-view.fxml"));
