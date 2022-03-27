@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="LibFront" />
+        <module name="FrontLivre" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="hellojfx" target="17" />
+      <module name="LibFront" target="1.5" />
       <module name="sample" target="11" />
     </bytecodeTargetLevel>
   </component>
