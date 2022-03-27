@@ -7,7 +7,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="libfront.VitrineController">
    <children>
       <Text layoutX="63.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vitrine">
@@ -30,7 +29,16 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <ListView prefHeight="351.0" prefWidth="496.0" />
+                  <TableView prefHeight="316.0" prefWidth="496.0">
+                    <columns>
+                      <TableColumn prefWidth="361.0" text="C1" />
+                      <TableColumn minWidth="4.0" prefWidth="116.0" text="C2">
+                           <graphic>
+                              <Button mnemonicParsing="false" text="Button" />
+                           </graphic>
+                        </TableColumn>
+                    </columns>
+                  </TableView>
                </children>
             </VBox>
          </content>

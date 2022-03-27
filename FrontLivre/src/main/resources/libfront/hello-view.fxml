@@ -45,7 +45,7 @@
       </Text>
       <ToolBar layoutX="83.0" layoutY="312.0" prefHeight="40.0" prefWidth="200.0">
         <items>
-          <Button mnemonicParsing="false" onAction="#SwitchToVitrine" text="Connect">
+          <Button fx:id="btnConnect" mnemonicParsing="false" onAction="#controlClient" text="Connect">
                <font>
                   <Font size="18.0" />
                </font>
@@ -57,5 +57,6 @@
             </Button>
         </items>
       </ToolBar>
+      <Label fx:id="retourNull" layoutX="144.0" layoutY="93.0" prefHeight="17.0" prefWidth="78.0" />
    </children>
 </Pane>
