@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="libfront.VitrineController">
+   <children>
+      <Text layoutX="63.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vitrine">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <SplitPane dividerPositions="0.6224489795918368" layoutX="163.0" layoutY="24.0" prefHeight="127.0" prefWidth="392.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="122.0" prefWidth="143.0" />
+        </items>
+      </SplitPane>
+      <ScrollPane layoutX="63.0" layoutY="172.0" prefHeight="355.0" prefWidth="496.0">
+         <content>
+            <VBox prefHeight="366.0" prefWidth="496.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nos livres en stock" textAlignment="CENTER" wrappingWidth="492.13671875">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <ListView prefHeight="351.0" prefWidth="496.0" />
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Button layoutX="272.0" layoutY="547.0" mnemonicParsing="false" onAction="#SwitchToPanier" text="Panier">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Group />
+      <Group layoutX="191.0" layoutY="556.0" />
+   </children>
+</AnchorPane>
