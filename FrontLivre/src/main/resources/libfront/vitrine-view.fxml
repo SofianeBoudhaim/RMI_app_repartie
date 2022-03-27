@@ -18,7 +18,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="125.0" prefWidth="157.0">
                <children>
-                  <Button fx:id="btnAjouter" layoutX="48.0" layoutY="80.0" mnemonicParsing="false" text="Ajouter">
+                  <Button fx:id="btnAjouter" layoutX="48.0" layoutY="80.0" mnemonicParsing="false" onAction="#ajoutPanier" text="Ajouter">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -33,7 +33,7 @@
                         <Font size="15.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="btnSupprimer" layoutX="122.0" layoutY="80.0" mnemonicParsing="false" text="Enlever">
+                  <Button fx:id="btnSupprimer" layoutX="122.0" layoutY="80.0" mnemonicParsing="false" onAction="#supprimePanier" text="Enlever">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -56,12 +56,7 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TableView prefHeight="316.0" prefWidth="496.0">
-                    <columns>
-                      <TableColumn prefWidth="361.0" text="C1" />
-                      <TableColumn minWidth="4.0" prefWidth="116.0" text="C2" />
-                    </columns>
-                  </TableView>
+                  <ListView fx:id="lvLivres" prefHeight="319.0" prefWidth="496.0" />
                </children>
             </VBox>
          </content>
@@ -73,5 +68,6 @@
       </Button>
       <Group />
       <Group layoutX="191.0" layoutY="556.0" />
+      <TextField fx:id="inputname" layoutX="14.0" layoutY="109.0" prefHeight="25.0" prefWidth="135.0" />
    </children>
 </AnchorPane>

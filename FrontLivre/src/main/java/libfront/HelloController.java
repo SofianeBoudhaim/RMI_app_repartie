@@ -45,7 +45,8 @@ public class HelloController implements Initializable {
     @FXML
     private TextField inputboutique;
 
-
+    @FXML
+    private TextField nomClient;
     @FXML
     private ListView<String> lvBoutiques;
 
@@ -64,15 +65,10 @@ public class HelloController implements Initializable {
             } else {
                 retourNull.setText("Mauvais ID");
             }
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (SQLException | IOException e) {
             e.printStackTrace();
         }
     }
-
 
     public void SwitchToStart(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));

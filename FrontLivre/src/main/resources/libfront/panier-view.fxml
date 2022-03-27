@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="libfront.PanierController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="libfront.PanierController">
    <children>
       <Pane prefHeight="56.0" prefWidth="350.0">
          <children>
@@ -19,6 +19,15 @@
             </Text>
          </children>
       </Pane>
+      <ToolBar prefHeight="40.0" prefWidth="250.0">
+        <items>
+            <TextField fx:id="inputname" />
+          <Button mnemonicParsing="false" onAction="#controlClient" text="Button" />
+        </items>
+         <opaqueInsets>
+            <Insets left="50.0" />
+         </opaqueInsets>
+      </ToolBar>
       <Group>
          <children>
             <VBox prefHeight="288.0" prefWidth="346.0">
