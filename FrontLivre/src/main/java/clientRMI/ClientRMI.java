@@ -29,7 +29,7 @@ public class ClientRMI {
         List<Client> clients = clientService.getClients();
         System.out.println(clients);
 
-        client.ajouterPanier(livreService.getLivreByID(1));
+        client.ajouterAuPanier(livreService.getLivreByID(1));
         System.out.println(client.getPanier());
 
 

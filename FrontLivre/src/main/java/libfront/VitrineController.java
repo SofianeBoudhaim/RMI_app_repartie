@@ -58,7 +58,7 @@ public class VitrineController implements Initializable {
         Client cli = clientService.getClientByMail(inputname.getText());
         //cli.ajouterPanier(livreService.getLivreByID(inputArticleID.getPrefColumnCount()));
         int add = Integer.parseInt(inputArticleID.getText());
-        cli.ajouterPanier(livreService.getLivreByID(add));
+        cli.ajouterAuPanier(livreService.getLivreByID(add));
         System.out.println(cli.getPanier());
     }
 
