@@ -49,19 +49,9 @@ public class VitrineController implements Initializable {
 
     @FXML
     private TextField inputname;
-<<<<<<< HEAD
-    @FXML
-    void ajoutPanier(ActionEvent event) throws MalformedURLException, NotBoundException, RemoteException, SQLException {
-=======
-
-    public VitrineController(Stage stage) {
-        this.stage = stage;
-    }
 
     @FXML
     void ajoutPanier(ActionEvent event) throws MalformedURLException, NotBoundException, RemoteException, SQLException {
-
->>>>>>> bb11a595acec662c4073f4abad7d092aae3e8f15
         ClientService clientService = (ClientService) Naming.lookup("rmi://localhost:5099/Client");
         LivreService livreService = (LivreService) Naming.lookup("rmi://localhost:5099/Librairie");
         //Livre l = livreService.getLivreByTitre(inputArticleID.getText());

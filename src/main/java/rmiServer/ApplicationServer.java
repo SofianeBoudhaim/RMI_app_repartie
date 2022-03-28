@@ -14,6 +14,7 @@ public class ApplicationServer {
 
             registry.rebind("Client", new ServantClient());
 
+            registry.rebind("Banque", new ServantBanque());
             System.out.println("Serveur prêt");
         }catch(Exception e){
             System.out.println("Serveur exception : " + e.toString());

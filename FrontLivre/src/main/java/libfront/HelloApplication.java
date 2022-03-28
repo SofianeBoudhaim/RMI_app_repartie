@@ -25,11 +25,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException, NotBoundException {
-<<<<<<< HEAD:FrontLivre/src/main/java/libfront/HelloApplication.java
-=======
 
-
->>>>>>> bb11a595acec662c4073f4abad7d092aae3e8f15:LibFront/src/main/java/com/example/libfront/HelloApplication.java
         //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         //Scene scene = new Scene(fxmlLoader.load(), 600, 450);
         Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));

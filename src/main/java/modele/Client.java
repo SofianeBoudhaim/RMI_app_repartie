@@ -28,7 +28,6 @@ public class Client implements Serializable {
         this.password = password;
     }
 
-
     public int getId() {
         return id;
     }
@@ -79,6 +78,7 @@ public class Client implements Serializable {
 
     public void supprimerDuPanier(Livre l){panier.supprimerDuPanier(l);}
 
+    public double getTotalPanier(){return panier.getTotalPanier();}
     @Override
     public String toString() {
         return "Client{" +

@@ -3,8 +3,6 @@ package DBConnect;
 import modele.Client;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 import static DBConnect.Connexion.createConnexion;
 
@@ -13,9 +11,7 @@ public class BanqueBDD {
     public static boolean getConnectionBanque(String identifiant, String password) throws SQLException {
 
         String qry = "SELECT * FROM banque WHERE codeIdentifiant = '" + identifiant + "' AND password = '" + password + "'";
-        Client c = null;
-        Double soldeBanque = Double.parseDouble(null);
-
+        String identifiant2 = "";
         Connection connection = createConnexion();
         Statement statement = null;
         ResultSet resultSet = null;
@@ -24,14 +20,14 @@ public class BanqueBDD {
         resultSet = statement.executeQuery(qry);
         if (resultSet.next()) {
             do {
-                soldeBanque = resultSet.getDouble("solde");
+                identifiant2 = resultSet.getString("codeIdentifiant");
             }
             while (resultSet.next());
         }
         connection.close();
         statement.close();
         resultSet.close();
-        if (soldeBanque != null) {
+        if (identifiant2 != "") {
             return true;
         } else {
             return false;
@@ -41,8 +37,7 @@ public class BanqueBDD {
     public static boolean soldeSuffisante(String identifiant, String password, double cout) throws SQLException {
         String qry = "SELECT * FROM banque WHERE codeIdentifiant = '" + identifiant + "' AND password = '" + password + "'";
         Client c = null;
-        Double soldeBanque = Double.parseDouble(null);
-
+        double soldeBanque = 0;
         Connection connection = createConnexion();
         Statement statement = null;
         ResultSet resultSet = null;
@@ -91,7 +86,7 @@ public class BanqueBDD {
         return soldeBanque;
     }
 
-    public static void payer(String identifiant, String password, double cout) throws SQLException {
+    public static boolean payer(String identifiant, String password, double cout) throws SQLException {
         String qry = "UPDATE banque SET solde = ? WHERE codeIdentifiant = ? AND password = ?";
         if (getConnectionBanque(identifiant, password) == true) {
             Connection connection = createConnexion();
@@ -106,5 +101,6 @@ public class BanqueBDD {
         } else {
             System.out.println("Payement impossible");
         }
+        return false;
     }
 }

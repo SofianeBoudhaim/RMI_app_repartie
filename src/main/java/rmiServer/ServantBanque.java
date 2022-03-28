@@ -23,4 +23,9 @@ public class ServantBanque extends UnicastRemoteObject implements BanqueService 
     public boolean verifierSolde(String codeIdentifiant, String password, double cout) throws RemoteException, SQLException {
         return BanqueBDD.soldeSuffisante(codeIdentifiant, password, cout);
     }
+
+    @Override
+    public void payer(String codeIdentifiant, String password, double cout) throws RemoteException, SQLException {
+         BanqueBDD.payer(codeIdentifiant, password, cout);
+    }
 }
