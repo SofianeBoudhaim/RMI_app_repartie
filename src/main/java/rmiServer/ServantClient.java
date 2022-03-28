@@ -1,5 +1,6 @@
 package rmiServer;
 
+import DBConnect.ClientBDD;
 import modele.*;
 import rmiInterface.ClientService;
 
@@ -15,17 +16,28 @@ public class ServantClient extends UnicastRemoteObject implements ClientService 
     }
 
     @Override
-    public Client getClientByMail(String mail) throws  SQLException{
-        return  DBConnect.ClientBDD.getClientByMail(mail);
+    public Client getClientByMail(String mail) throws SQLException {
+        return DBConnect.ClientBDD.getClientByMail(mail);
     }
 
     @Override
-    public Client getClientByID(int id) throws  SQLException {
+    public Client getClientByID(int id) throws SQLException {
         return DBConnect.ClientBDD.getClientID(id);
     }
 
     @Override
-    public List<Client> getClients() throws  SQLException {
+    public void ajouterClient(Client client) throws RemoteException, SQLException {
+        ClientBDD.ajouterClient(client);
+    }
+
+
+    @Override
+    public List<Client> getClients() throws SQLException {
         return DBConnect.ClientBDD.getClients();
+    }
+
+    @Override
+    public Boolean connectionClient(String email, String password) throws RemoteException, SQLException {
+        return DBConnect.ClientBDD.connectionClient(email, password);
     }
 }

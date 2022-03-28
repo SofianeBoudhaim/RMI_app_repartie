@@ -21,11 +21,13 @@ public class Client implements Serializable {
         this.password = password;
     }
 
-    public Client(int id, String name, String iMail) {
-        this.id = id;
+    public Client(String nom, String prenom, String mail, String password) {
         this.nom = nom;
+        this.prenom = prenom;
         this.mail = mail;
+        this.password = password;
     }
+
 
     public int getId() {
         return id;
@@ -71,9 +73,11 @@ public class Client implements Serializable {
         return panier;
     }
 
-    public void ajouterPanier(Livre l){
+    public void ajouterAuPanier(Livre l){
         panier.ajouterAuPanier(l);
     }
+
+    public void supprimerDuPanier(Livre l){panier.supprimerDuPanier(l);}
 
     @Override
     public String toString() {
@@ -87,4 +91,6 @@ public class Client implements Serializable {
                 ", passwordB='" + passwordB + '\'' +
                 '}';
     }
+
+
 }

@@ -36,7 +36,6 @@ public class LivreBDD {
 
     public static void ajouterLivre(Livre livre) throws SQLException {
         //liste de tout les livres
-
         List<Livre> l = getLivres();
 
         if(!l.contains(livre)){
