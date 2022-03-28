@@ -35,7 +35,7 @@ public class PanierController implements Initializable {
         ClientService clientService = (ClientService) Naming.lookup("rmi://localhost:5099/Client");
         try {
             Commande response = clientService.getClientByMail(inputname.getText()).getPanier();
-            System.out.println(response);
+            System.out.println(response.getPanier());
 
             if (response != null){
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);

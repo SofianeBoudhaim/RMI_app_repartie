@@ -20,7 +20,6 @@ public class ClientRMI {
         List<Livre> livres = livreService.getLivres();
         System.out.println(livres);
 
-
         Client client = clientService.getClientByMail("sofiane.boudhaim@gmail.com");
         System.out.println(client);
 
