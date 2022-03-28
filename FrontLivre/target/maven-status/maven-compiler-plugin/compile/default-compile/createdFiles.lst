@@ -1,5 +1,4 @@
 rmiInterface\BoutiqueService.class
-clientRMI\ClientRMI.class
 libfront\HelloController.class
 modele\Banque.class
 modele\Boutique.class

@@ -5,7 +5,6 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 public class ApplicationServer {
-
     public static void main(String[] args) throws RemoteException {
         try {
             Registry registry = LocateRegistry.createRegistry(5099);

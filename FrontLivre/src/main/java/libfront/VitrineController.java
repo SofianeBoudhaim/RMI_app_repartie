@@ -1,7 +1,5 @@
 package libfront;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,11 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import modele.Client;
-import modele.Commande;
 import modele.Livre;
-import rmiInterface.BoutiqueService;
-import rmiInterface.ClientService;
-import rmiInterface.LivreService;
+import rmiInterface.*;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

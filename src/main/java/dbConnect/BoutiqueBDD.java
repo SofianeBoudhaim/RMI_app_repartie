@@ -1,7 +1,6 @@
-package DBConnect;
+package dbConnect;
 
-import modele.Boutique;
-import modele.Livre;
+import modeles.Boutique;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -10,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import static DBConnect.Connexion.createConnexion;
+import static dbConnect.Connexion.createConnexion;
 
 public class BoutiqueBDD {
     public static List<Boutique> getBoutiques() throws SQLException {

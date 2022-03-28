@@ -1,7 +1,8 @@
 package rmiServer;
 
 import modele.*;
-import rmiInterface.LivreService;
+import modeles.Livre;
+import rmiInterfaces.LivreService;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -15,22 +16,22 @@ public class ServantLivre extends UnicastRemoteObject implements LivreService {
 
     @Override
     public List<Livre> getLivres() throws SQLException {
-        return DBConnect.LivreBDD.getLivres();
+        return dbConnect.LivreBDD.getLivres();
     }
 
     @Override
     public Livre getLivreByID(int id) throws SQLException {
-        return DBConnect.LivreBDD.getLivreById(id);
+        return dbConnect.LivreBDD.getLivreById(id);
     }
 
     @Override
     public Livre getLivreByTitre(String titre) throws SQLException {
-        return DBConnect.LivreBDD.getLivreByTitre(titre);
+        return dbConnect.LivreBDD.getLivreByTitre(titre);
     }
 
     @Override
     public void ajouterLivre(Livre livre) throws RemoteException, SQLException {
-        DBConnect.LivreBDD.ajouterLivre(livre);
+        dbConnect.LivreBDD.ajouterLivre(livre);
     }
 
 

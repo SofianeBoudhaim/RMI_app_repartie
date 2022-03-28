@@ -1,7 +1,6 @@
-package modele;
+package modeles;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class Client implements Serializable {
     private int id;

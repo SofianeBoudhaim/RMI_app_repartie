@@ -1,8 +1,7 @@
 package rmiServer;
 
-import DBConnect.BanqueBDD;
-import rmiInterface.BanqueService;
-import rmiInterface.ClientService;
+import dbConnect.BanqueBDD;
+import rmiInterfaces.BanqueService;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

@@ -1,12 +1,12 @@
-package DBConnect;
+package dbConnect;
 
-import modele.Livre;
+import modeles.Livre;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static DBConnect.Connexion.createConnexion;
+import static dbConnect.Connexion.createConnexion;
 
 public class LivreBDD {
 

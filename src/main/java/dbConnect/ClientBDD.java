@@ -1,12 +1,13 @@
-package DBConnect;
+package dbConnect;
 
 import modele.*;
+import modeles.Client;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static DBConnect.Connexion.createConnexion;
+import static dbConnect.Connexion.createConnexion;
 
 public class ClientBDD {
 

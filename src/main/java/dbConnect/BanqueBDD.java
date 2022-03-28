@@ -1,10 +1,10 @@
-package DBConnect;
+package dbConnect;
 
-import modele.Client;
+import modeles.Client;
 
 import java.sql.*;
 
-import static DBConnect.Connexion.createConnexion;
+import static dbConnect.Connexion.createConnexion;
 
 public class BanqueBDD {
 

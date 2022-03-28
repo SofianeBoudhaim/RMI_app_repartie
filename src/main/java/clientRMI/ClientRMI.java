@@ -1,8 +1,8 @@
 package clientRMI;
 
-import DBConnect.BanqueBDD;
-import modele.*;
-import rmiInterface.*;
+import dbConnect.BanqueBDD;
+import modeles.*;
+import rmiInterfaces.*;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -17,6 +17,7 @@ public class ClientRMI {
         LivreService livreService = (LivreService) Naming.lookup("rmi://localhost:5099/Librairie");
         ClientService clientService = (ClientService) Naming.lookup("rmi://localhost:5099/Client");
         BanqueService banqueService = (BanqueService) Naming.lookup("rmi://localhost:5099/Banque");
+
         List<Livre> livres = livreService.getLivres();
         System.out.println(livres);  //liste de tout les livres de la vitrine
 
@@ -36,10 +37,5 @@ public class ClientRMI {
         }else{
             System.out.println("Payement impossible, solde insuffisante");
         }
-
-
-
-
-
     }
 }

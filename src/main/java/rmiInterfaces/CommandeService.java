@@ -1,4 +1,4 @@
-package rmiInterface;
+package rmiInterfaces;
 
 import java.rmi.Remote;
 
