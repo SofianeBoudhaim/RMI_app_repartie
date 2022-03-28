@@ -1,8 +1,7 @@
 package rmiServer;
 
-import modele.*;
-import modeles.Livre;
-import rmiInterfaces.LivreService;
+import modele.Livre;
+import rmiInterface.LivreService;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

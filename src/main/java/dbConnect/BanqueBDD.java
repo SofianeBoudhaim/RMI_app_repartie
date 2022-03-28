@@ -1,6 +1,6 @@
 package dbConnect;
 
-import modeles.Client;
+import modele.Client;
 
 import java.sql.*;
 

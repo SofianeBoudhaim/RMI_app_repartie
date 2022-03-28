@@ -1,6 +1,6 @@
 package dbConnect;
 
-import modeles.Boutique;
+import modele.Boutique;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

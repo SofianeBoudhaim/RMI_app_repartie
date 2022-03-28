@@ -1,7 +1,6 @@
 package dbConnect;
 
-import modele.*;
-import modeles.Client;
+import modele.Client;
 
 import java.sql.*;
 import java.util.ArrayList;

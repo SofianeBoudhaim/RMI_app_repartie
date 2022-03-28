@@ -1,9 +1,8 @@
 package rmiServer;
 
 import dbConnect.ClientBDD;
-import modele.*;
-import modeles.Client;
-import rmiInterfaces.ClientService;
+import modele.Client;
+import rmiInterface.ClientService;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

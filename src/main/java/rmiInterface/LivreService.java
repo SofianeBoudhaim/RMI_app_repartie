@@ -1,6 +1,6 @@
-package rmiInterfaces;
+package rmiInterface;
 
-import modeles.Livre;
+import modele.Livre;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

@@ -1,8 +1,8 @@
 package clientRMI;
 
 import dbConnect.BanqueBDD;
-import modeles.*;
-import rmiInterfaces.*;
+import modele.*;
+import rmiInterface.*;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
