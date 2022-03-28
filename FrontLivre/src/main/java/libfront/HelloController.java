@@ -49,13 +49,24 @@ public class HelloController implements Initializable {
     private ListView<String> lvBoutiques;
 
     @FXML
-    void controlClient(ActionEvent event) throws MalformedURLException, NotBoundException, RemoteException {
+    void controlClient(ActionEvent event) throws MalformedURLException, NotBoundException, RemoteException, SQLException {
         ClientService clientService = (ClientService) Naming.lookup("rmi://localhost:5099/Client");
         try {
+<<<<<<< HEAD
             boolean res = clientService.connectionClient(inputname.getText(), inputpass.getText());
             //System.out.println(inputname.getText() + " a pour user " + response);
             if (res) {
+=======
+            Client response = clientService.getClientByMail(inputname.getText());
+            Boolean connect = clientService.connectionClient(inputname.getText(), inputpass.getText());
+
+            System.out.println(inputname.getText() + " a pour user " + response);
+            //if (response != null) {
+              if (connect.equals(true)){
+>>>>>>> 4ca006b6d3337f40f0f7c4fde5d5bead2d285af4
                 client = clientService.getClientByMail(inputname.getText());
+                //Boolean connect = this.client.getPrenom();
+
                 System.out.println(inputname.getText() + " a pour user " + client);
                 if (client != null) {
                     Parent root = FXMLLoader.load(getClass().getResource("vitrine-view.fxml"));

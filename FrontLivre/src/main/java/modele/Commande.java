@@ -32,6 +32,14 @@ public class Commande implements Serializable {
         panier.remove(livre);
     }
 
+    public double getTotalPanier(){
+        double res = 0;
+        for (Livre l: panier) {
+            res += l.getPrix();
+        }
+        return res;
+    }
+
     @Override
     public String toString() {
         return "Commande{" +
