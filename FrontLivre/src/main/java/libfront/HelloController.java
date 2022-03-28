@@ -32,7 +32,11 @@ public class HelloController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+<<<<<<< HEAD:FrontLivre/src/main/java/libfront/HelloController.java
 
+=======
+    Client client;
+>>>>>>> bb11a595acec662c4073f4abad7d092aae3e8f15:LibFront/src/main/java/com/example/libfront/HelloController.java
     @FXML
     private Label retourNull;
 
@@ -54,9 +58,15 @@ public class HelloController implements Initializable {
     void controlClient(ActionEvent event) throws MalformedURLException, NotBoundException, RemoteException {
         ClientService clientService = (ClientService) Naming.lookup("rmi://localhost:5099/Client");
         try {
+<<<<<<< HEAD:FrontLivre/src/main/java/libfront/HelloController.java
             Client response = clientService.getClientByMail(inputname.getText());
             System.out.println(inputname.getText() + " a pour user " + response);
             if (response != null){
+=======
+            client = clientService.getClientByMail(inputname.getText());
+            System.out.println(inputname.getText() + " a pour user " + client);
+            if (client != null){
+>>>>>>> bb11a595acec662c4073f4abad7d092aae3e8f15:LibFront/src/main/java/com/example/libfront/HelloController.java
                 Parent root = FXMLLoader.load(getClass().getResource("vitrine-view.fxml"));
                 stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
@@ -101,6 +111,13 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        try {
+            ClientService clientService = (ClientService) Naming.lookup("rmi://localhost:5099/Client");
+
+        } catch (NotBoundException | MalformedURLException | RemoteException e) {
+            e.printStackTrace();
+        }
+
         lvBoutiques.getItems().addAll(book);
         lvBoutiques.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override

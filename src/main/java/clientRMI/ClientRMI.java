@@ -19,6 +19,12 @@ public class ClientRMI {
         List<Livre> livres = livreService.getLivres();
         System.out.println(livres);
 
+<<<<<<< HEAD
+=======
+        Client client = clientService.getClientByMail("sofiane.boudhaim@gmail.com");
+        System.out.println(client);
+
+>>>>>>> bb11a595acec662c4073f4abad7d092aae3e8f15
         List<Client> clients = clientService.getClients();
         System.out.println(clients);
         clientService.ajouterClient(new Client("Jardin", "Elodie", "elodie.jardin@gmail.com", "admin1234"));
