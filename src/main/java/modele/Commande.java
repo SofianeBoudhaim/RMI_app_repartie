@@ -29,7 +29,11 @@ public class Commande implements Serializable {
     }
 
     public void supprimerDuPanier(Livre livre){
-        panier.remove(livre);
+        for (int i = 0; i < panier.size(); i++) {
+            if(panier.get(i).getId() == livre.getId()) {
+                panier.remove(i);
+            }
+        }
     }
 
     public double getTotalPanier(){

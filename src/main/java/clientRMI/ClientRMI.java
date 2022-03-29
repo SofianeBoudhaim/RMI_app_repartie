@@ -27,6 +27,9 @@ public class ClientRMI {
         System.out.println("La connection à la boutique a été effectué ? :  "+clientService.connectionClient("elodie.jardin@gmail.com", "admin1234"));  //retourne true car il existe, connection établie
         Client client = clientService.getClientByMail("sofiane.boudhaim@gmail.com");
         client.ajouterAuPanier(livreService.getLivreByID(1));
+        client.ajouterAuPanier(livreService.getLivreByID(2));
+        System.out.println(client.getPanier());
+        client.supprimerDuPanier(livreService.getLivreByID(2));
         System.out.println(client.getPanier());
         System.out.println("Total du panier : " + client.getTotalPanier());
         System.out.println("La connection à la banque a été effectué ? :  "+banqueService.verifierConnexion("SofianeBoudhaim", "Admin123"));

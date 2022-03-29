@@ -75,7 +75,9 @@ public class Client implements Serializable {
         panier.ajouterAuPanier(l);
     }
 
-    public void supprimerDuPanier(Livre l){panier.supprimerDuPanier(l);}
+    public void supprimerDuPanier(Livre l){
+        panier.supprimerDuPanier(l);
+    }
 
     public double getTotalPanier(){return panier.getTotalPanier();}
     @Override
