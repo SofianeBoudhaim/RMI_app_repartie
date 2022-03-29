@@ -26,6 +26,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/*
+Controller de l'interface de départ/connexion
+ */
 public class HelloController implements Initializable {
     private Stage stage;
     private Scene scene;
@@ -44,6 +47,7 @@ public class HelloController implements Initializable {
     @FXML
     private ListView<String> lvClients;
 
+    //Initialisation du client
     static Client client;
 
     @FXML
@@ -60,7 +64,7 @@ public class HelloController implements Initializable {
                   stage.setScene(scene);
                   stage.show();
             } else {
-                  retourNull.setText("Mauvais ID");
+                  retourNull.setText("Mauvais login");
             }
         } catch (SQLException | IOException e) {
             e.printStackTrace();
@@ -70,7 +74,8 @@ public class HelloController implements Initializable {
         return client;
     }
 
-    public void SwitchToUsers(ActionEvent event) throws IOException {
+
+    public void SwitchToArticle(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("article-view.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

@@ -7,35 +7,30 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import modele.Commande;
 import modele.Livre;
-import rmiInterface.ClientService;
-
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.rmi.Naming;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/*
+Controller de l'interface du Panier
+ */
 public class PanierController implements Initializable {
     private Stage stage;
     private Scene scene;
 
     @FXML
-    private ListView<Livre> lvArticles;
+    private ListView<String> lvArticles;
 
     @FXML
     private Label mtPanier;
 
+    String retLivre;
 
     public void SwitchToVitrine(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("vitrine-view.fxml"));
@@ -55,9 +50,14 @@ public class PanierController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //Récupération de la liste de livres dans le Panier du Client
         Commande articles = HelloController.getClient().getPanier();
-        mtPanier.setText(String.valueOf(articles.getTotalPanier()));
+        mtPanier.setText(String.valueOf(articles.getTotalPanier())+" €");
         List<Livre> livres = articles.getPanier();
-        lvArticles.getItems().addAll(livres);
+        for (Livre livre: livres){
+            retLivre = "id : "+ livre.getId()+" | Titre : "+livre.getTitre()+" | Prix : "+livre.getPrix()+" € \nDescription : "+livre.getDescription();
+            lvArticles.getItems().add(retLivre);
+        }
+       // lvArticles.getItems().addAll(livres);
     }
 }

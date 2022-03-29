@@ -12,14 +12,14 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import modele.Livre;
 import rmiInterface.LivreService;
-
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 import java.sql.SQLException;
 
+/*
+Controller de l'interface Article concernant l'ajout d'un Livre
+ */
 public class ArticleController {
     private Stage stage;
     private Scene scene;
@@ -39,10 +39,13 @@ public class ArticleController {
     @FXML
     private Label labErreur;
 
+    //Ajout d'un livre dans la librairie
     @FXML
     void addArticle(ActionEvent event) throws IOException, NotBoundException, SQLException {
+        //appel à l'interface LivreService
         LivreService livreService = (LivreService) Naming.lookup("rmi://localhost:5099/Librairie");
-         livreService.ajouterLivre(new Livre(tfTitre.getText(), Double.parseDouble(tfPrix.getText()), Integer.parseInt(tfQuantite.getText()), tfDescription.getText()));
+        //Appel de la méthode ajouterlivre pour en créer un nouveau
+        livreService.ajouterLivre(new Livre(tfTitre.getText(), Double.parseDouble(tfPrix.getText()), Integer.parseInt(tfQuantite.getText()), tfDescription.getText()));
         //if(testAdd){
             Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -55,7 +58,6 @@ public class ArticleController {
 
     }
 
-
     public void SwitchToStart(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -63,6 +65,5 @@ public class ArticleController {
         stage.setScene(scene);
         stage.show();
     }
-
 
 }

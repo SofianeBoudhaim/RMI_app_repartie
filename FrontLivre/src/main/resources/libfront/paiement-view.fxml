@@ -1,32 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<!-- Interface de Paiement -->
+
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="libfront.PaimentController">
    <children>
-      <TextField fx:id="inputName" layoutX="68.0" layoutY="157.0" promptText="Identifiant" />
-      <TextField fx:id="inputPass" layoutX="268.0" layoutY="157.0" promptText="Mot de passe" />
-      <Label fx:id="mtAchat" layoutX="314.0" layoutY="86.0" prefHeight="21.0" prefWidth="149.0">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Text layoutX="78.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous allez effectuer un paiement de ">
+      <TextField fx:id="inputName" layoutX="52.0" layoutY="215.0" promptText="Identifiant">
          <font>
             <Font size="13.0" />
-         </font>
-      </Text>
-      <Label fx:id="retourFalse" layoutX="342.0" layoutY="294.0" prefHeight="21.0" prefWidth="165.0" textFill="#ff1919">
+         </font></TextField>
+      <TextField fx:id="inputPass" layoutX="252.0" layoutY="215.0" promptText="Mot de passe">
          <font>
-            <Font size="15.0" />
+            <Font size="13.0" />
+         </font></TextField>
+      <Label fx:id="mtAchat" layoutX="353.0" layoutY="140.0" prefHeight="21.0" prefWidth="149.0">
+         <font>
+            <Font name="System Bold Italic" size="17.0" />
          </font>
       </Label>
-      <Button layoutX="143.0" layoutY="303.0" mnemonicParsing="false" onAction="#ControlPaiement" text="Confirmer" />
+      <Text layoutX="54.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous allez effectuer un paiement de ">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Text>
+      <Label fx:id="retourFalse" layoutX="361.0" layoutY="305.0" prefHeight="21.0" prefWidth="165.0" textFill="#ff1919">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Button layoutX="256.0" layoutY="300.0" mnemonicParsing="false" onAction="#ControlPaiement" text="Confirmer">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
       <Button layoutX="26.0" layoutY="33.0" mnemonicParsing="false" onAction="#SwitchToPanier" text="Retour" />
+      <Text layoutX="88.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Connexion au service de la Banque pour paiement">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="122.0" fitWidth="175.0" layoutX="46.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../livre.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -9,7 +10,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="libfront.VitrineController">
    <children>
-      <Text layoutX="63.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vitrine">
+      <Text layoutX="63.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vitrine">
          <font>
             <Font size="22.0" />
          </font>
@@ -68,6 +69,16 @@
       </Button>
       <Group />
       <Group layoutX="191.0" layoutY="556.0" />
-      <TextField fx:id="inputname" layoutX="14.0" layoutY="109.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="inputname" layoutX="14.0" layoutY="107.0" prefHeight="25.0" prefWidth="135.0" />
+      <Label fx:id="labMessage" layoutX="41.0" layoutY="550.0" prefHeight="25.0" prefWidth="204.0" textFill="#e10c0c">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="62.0" fitWidth="98.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../book.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

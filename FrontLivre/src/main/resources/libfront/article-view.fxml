@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<!-- Interface pour l'ajout de livre -->
 <AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="libfront.ArticleController">
    <children>
       <Text layoutX="105.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajout d'un livre en librairie" textAlignment="CENTER">

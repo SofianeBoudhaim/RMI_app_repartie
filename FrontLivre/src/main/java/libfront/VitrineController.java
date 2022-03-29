@@ -20,9 +20,11 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
+/*
+Controller de l'interface Vitrine concernant la Liste des Livres
+ */
 public class VitrineController implements Initializable {
     private Stage stage;
     private Scene scene;
@@ -34,37 +36,59 @@ public class VitrineController implements Initializable {
     private ListView<String> lvPanier;
 
     @FXML
-    private ListView<Livre> lvLivres;
-    String ret = null;
-    LivreService livreService = (LivreService) Naming.lookup("rmi://localhost:5099/Librairie");
+    private ListView<String> lvLivres;
+
+    @FXML
+    private Label labMessage;
 
     @FXML
     private TextField inputname;
-    Commande commande = HelloController.getClient().getPanier();
+
+    String retLivre = null;
+
+    //Appel de l'interface LivreService
+    LivreService livreService = (LivreService) Naming.lookup("rmi://localhost:5099/Librairie");
+
+    //récupération du client et son panier
     Client client = HelloController.getClient();
+    Commande commande = client.getPanier();
+
 
     public VitrineController() throws MalformedURLException, NotBoundException, RemoteException {
     }
 
+    //bouton pour l'ajout au panier
     @FXML
-    void ajoutPanier(ActionEvent event) throws MalformedURLException, NotBoundException, RemoteException, SQLException {
-        //LivreService livreService = (LivreService) Naming.lookup("rmi://localhost:5099/Librairie");
+    void ajoutPanier(ActionEvent event) throws RemoteException, SQLException {
         int add = Integer.parseInt(inputArticleID.getText());
-        this.client.ajouterAuPanier(livreService.getLivreByID(add));
+        Livre livreAdd = livreService.getLivreByID(add);
+        //Recherche le livre à ajouter par ID
 
-        System.out.println(HelloController.getClient().getPanier());
-        for (Livre livre : commande.getPanier()){
-            ret = livre.getId()+" "+livre.getTitre();
+        List<Livre> inp = this.commande.getPanier();
+        Set<Livre> distinct = new HashSet<>(inp);
+
+        //recherche le livre par ID afin de vérifier sa disponibilité
+        if (livreAdd.getQuantite()>0){
+            this.client.ajouterAuPanier(livreAdd);
+            System.out.println(HelloController.getClient().getPanier());
+            for (Livre livre : commande.getPanier()){
+                retLivre = livre.getId()+" "+livre.getTitre();
+            }
+            lvPanier.getItems().addAll(retLivre);
+            //Affiche le livre ajouté dans la ListView panier
+        } else {
+            labMessage.setText( livreAdd.getTitre()+" pas disponible");
+            //ou retourne un message d'erreur
         }
-        lvPanier.getItems().addAll(ret);
     }
 
-
+    //bouton pour la suppression d'un article dans le panier
     @FXML
-    void supprimePanier(ActionEvent event) throws MalformedURLException, NotBoundException, RemoteException, SQLException {
+    void supprimePanier(ActionEvent event) throws RemoteException, SQLException {
         int add = Integer.parseInt(inputArticleID.getText());
         this.client.supprimerDuPanier(livreService.getLivreByID(add));
         System.out.println(HelloController.getClient().getPanier());
+        labMessage.setText("Bien supprimé du panier");
     }
 
     public void SwitchToPanier(ActionEvent event) throws IOException {
@@ -80,14 +104,23 @@ public class VitrineController implements Initializable {
     public void initialize(URL url, ResourceBundle resource) {
         try {
             inputname.setText( HelloController.getClient().getMail());
-         //   LivreService livreService = (LivreService) Naming.lookup("rmi://localhost:5099/Librairie");
+
+            //Récupération de la Liste des Livres de LivreService
             List<Livre> livres = livreService.getLivres();
             for (Livre l :livres){
-                lvLivres.getItems().add(l);
+                if (l.getQuantite()>=0){
+                    retLivre = "id :"+ l.getId() + " | Titre : "+l.getTitre()+" | Prix : "+l.getPrix()+" € | Quantité : "+l.getQuantite()+"\nDescription : "+l.getDescription();
+                }else {
+                    retLivre = "id :"+ l.getId() + " | Titre : "+l.getTitre()+" | Prix : "+l.getPrix()+" € | Quantité : Pas disponible \nDescription : "+l.getDescription();
+                }
+                //Ajout à la ListView des Livres
+                lvLivres.getItems().add(retLivre);
             }
+
+            //Ajout des livres dans le panier dans la ListView Panier
             for (Livre livre : commande.getPanier()){
-                ret = livre.getId()+" "+livre.getTitre();
-                lvPanier.getItems().addAll(ret);
+                retLivre = livre.getId()+" "+livre.getTitre();
+                lvPanier.getItems().addAll(retLivre);
             }
         } catch (SQLException | RemoteException e) {
             e.printStackTrace();
