@@ -1,6 +1,7 @@
 package modele;
 
 import java.io.Serializable;
+import java.sql.SQLException;
 
 public class Client implements Serializable {
     private int id;
@@ -71,8 +72,8 @@ public class Client implements Serializable {
         return panier;
     }
 
-    public void ajouterAuPanier(Livre l){
-        panier.ajouterAuPanier(l);
+    public void ajouterAuPanier(Livre l) throws SQLException {
+         panier.ajouterAuPanier(l);
     }
 
     public void supprimerDuPanier(Livre l){

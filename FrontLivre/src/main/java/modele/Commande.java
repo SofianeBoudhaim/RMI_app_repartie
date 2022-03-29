@@ -1,6 +1,7 @@
 package modele;
 
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,6 @@ public class Commande implements Serializable {
         this.panier = panier;
     }
 
-
     public Commande(){
         this.panier = new ArrayList<Livre>();
     }
@@ -24,8 +24,8 @@ public class Commande implements Serializable {
         return panier;
     }
 
-    public void ajouterAuPanier(Livre livre){
-        panier.add(livre);
+    public void ajouterAuPanier(Livre livre) throws SQLException {
+            panier.add(livre);
     }
 
     public void supprimerDuPanier(Livre livre){
@@ -35,6 +35,7 @@ public class Commande implements Serializable {
             }
         }
     }
+
 
     public double getTotalPanier(){
         double res = 0;
