@@ -13,16 +13,19 @@ public class Livre implements Serializable {
     private int id;
     private String titre;
     private double prix;
+    private int quantite;
 
-    public Livre(int id, String titre, double prix){
+    public Livre(int id, String titre, double prix, int quantite){
         this.id = id;
         this.titre = titre;
         this.prix = prix;
+        this.quantite = quantite;
     }
 
-    public Livre(String titre, double prix){
+    public Livre(String titre, double prix, int quantite){
         this.titre = titre;
         this.prix = prix;
+        this.quantite = quantite;
     }
 
 
@@ -54,6 +57,13 @@ public class Livre implements Serializable {
         this.prix = prix;
     }
 
+    public int getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
+    }
 
     @Override
     public String toString() {
@@ -61,6 +71,7 @@ public class Livre implements Serializable {
                 "id=" + id +
                 ", titre='" + titre + '\'' +
                 ", prix=" + prix +
+                ", quantite=" + quantite +
                 '}';
     }
 }

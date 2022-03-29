@@ -26,7 +26,8 @@ public class LivreBDD {
             int id = resultSet.getInt("id");
             String titre = resultSet.getString("titre");
             double prix = resultSet.getDouble("prix");
-            l.add(new Livre(id, titre, prix));
+            int quantite = resultSet.getInt("quantite");
+            l.add(new Livre(id, titre, prix, quantite));
         }
         connection.close();
         statement.close();
@@ -38,9 +39,9 @@ public class LivreBDD {
         //liste de tout les livres
         List<Livre> l = getLivres();
 
-        if(!l.contains(livre)){
+        if (!l.contains(livre)) {
             Connection connection = createConnexion();
-            PreparedStatement st = connection.prepareStatement("INSERT INTO livre (titre, prix, quantite) VALUES (?, ?, ?)") ;
+            PreparedStatement st = connection.prepareStatement("INSERT INTO livre (titre, prix, quantite) VALUES (?, ?, ?)");
             st.setString(1, livre.getTitre());
             st.setDouble(2, livre.getPrix());
             st.setInt(3, 1);
@@ -48,13 +49,11 @@ public class LivreBDD {
             st.executeUpdate();
             st.close();
             connection.close();
-        }
-        else{
+        } else {
             System.out.println("Livre déjà existant");
         }
 
     }
-
 
 
     // Retourne un livre selon son ID, retourne null si aucun livre ne correspond
@@ -68,11 +67,12 @@ public class LivreBDD {
 
         statement = connection.createStatement();
         resultSet = statement.executeQuery(qry);
-        if(resultSet.next()) {
+        if (resultSet.next()) {
             do {
                 String titre = resultSet.getString("titre");
                 double prix = resultSet.getDouble("prix");
-                l = new Livre(id, titre, prix);
+                int quantite = resultSet.getInt("quantite");
+                l = new Livre(id, titre, prix, quantite);
             } while (resultSet.next());
         }
         connection.close();
@@ -92,16 +92,32 @@ public class LivreBDD {
         statement = connection.createStatement();
         resultSet = statement.executeQuery(qry);
 
-        if(resultSet.next()) {
+        if (resultSet.next()) {
             do {
                 int id = resultSet.getInt("id");
                 double prix = resultSet.getDouble("prix");
-                l = new Livre(id, titre, prix);
+                int quantite = resultSet.getInt("quantite");
+                l = new Livre(id, titre, prix, quantite);
             } while (resultSet.next());
         }
         connection.close();
         statement.close();
         resultSet.close();
         return l;
+    }
+
+    public static void baisserQteLivreByID(int id)throws SQLException {
+        Livre livre = getLivreById(id);
+        int qteActuelle = livre.getQuantite();
+        int nouvelleQte = qteActuelle - 1;
+        String qry = "UPDATE livre SET quantite = '" + nouvelleQte + "' WHERE id = " + id;
+
+        Connection connection = createConnexion();
+        Statement statement = null;
+        statement = connection.createStatement();
+        statement.executeUpdate(qry);
+
+        connection.close();
+        statement.close();
     }
 }
