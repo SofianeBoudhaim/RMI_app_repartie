@@ -1,6 +1,8 @@
 package dbConnect;
 
 import modele.Client;
+import modele.Commande;
+import modele.Livre;
 
 import java.sql.*;
 
@@ -86,7 +88,8 @@ public class BanqueBDD {
         return soldeBanque;
     }
 
-    public static boolean payer(String identifiant, String password, double cout) throws SQLException {
+    public static boolean payer(String identifiant, String password, Commande panier) throws SQLException {
+        double cout = panier.getTotalPanier();
         String qry = "UPDATE banque SET solde = ? WHERE codeIdentifiant = ? AND password = ?";
         if (getConnectionBanque(identifiant, password) == true) {
             Connection connection = createConnexion();
@@ -100,6 +103,10 @@ public class BanqueBDD {
             connection.close();
         } else {
             System.out.println("Paiement impossible");
+        }
+
+        for (Livre l : panier.getPanier()) {
+            LivreBDD.baisserQteLivreByID(l.getId());
         }
         return false;
     }
