@@ -7,16 +7,27 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import rmiInterface.ClientService;
+
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.sql.SQLException;
+import java.util.List;
 
 public class AjoutclientController {
     @FXML
-    private TextField tfId;
+    private TextField tfNom;
 
     @FXML
-    private TextField tfName;
+    private TextField tfPrenom;
 
     @FXML
-    private TextField tfAge;
+    private TextField tfMail;
+
+    @FXML
+    private TextField tfPassword;
 
     private ObservableList<Client> appMainObservableList;
 
@@ -26,12 +37,10 @@ public class AjoutclientController {
     }
 
     @FXML
-    void btnAddPersonClicked(ActionEvent event) {
+    void btnAddPersonClicked(ActionEvent event) throws MalformedURLException, NotBoundException, RemoteException, SQLException {
         System.out.println("btnAddPersonClicked");
-        int id = Integer.valueOf(tfId.getText().trim());
-        String name = tfName.getText().trim();
-        int iAge = Integer.valueOf(tfAge.getText().trim());
-
+        ClientService clientService = (ClientService) Naming.lookup("rmi://localhost:5099/Client");
+        clientService.ajouterClient(new Client(tfNom.getText(),tfPrenom.getText(), tfMail.getText(),tfPassword.getText()));
 
         //Client data = new Client(id, name, iAge);
         //appMainObservableList.add(data);

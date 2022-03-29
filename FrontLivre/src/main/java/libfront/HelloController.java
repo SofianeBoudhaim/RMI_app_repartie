@@ -23,14 +23,15 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    String choixClient;
 
-    Client client;
     @FXML
     private Label retourNull;
 
@@ -46,7 +47,9 @@ public class HelloController implements Initializable {
     @FXML
     private TextField nomClient;
     @FXML
-    private ListView<String> lvBoutiques;
+    private ListView<String> lvClients;
+
+    static Client client;
 
     @FXML
     void controlClient(ActionEvent event) throws MalformedURLException, NotBoundException, RemoteException, SQLException {
@@ -57,15 +60,13 @@ public class HelloController implements Initializable {
             if (res) {
             Client response = clientService.getClientByMail(inputname.getText());
             Boolean connect = clientService.connectionClient(inputname.getText(), inputpass.getText());
-
-            System.out.println(inputname.getText() + " a pour user " + response);
             //if (response != null) {
-              if (connect.equals(true)) {
+           //   if (connect.equals(true)) {
                   client = clientService.getClientByMail(inputname.getText());
                   //Boolean connect = this.client.getPrenom();
-
+              //  System.out.println(getClient());
                   System.out.println(inputname.getText() + " a pour user " + client);
-                  if (client != null) {
+                //  if (client != null) {
                       Parent root = FXMLLoader.load(getClass().getResource("vitrine-view.fxml"));
                       stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                       scene = new Scene(root);
@@ -74,19 +75,14 @@ public class HelloController implements Initializable {
                   } else {
                       retourNull.setText("Mauvais ID");
                   }
-              }
-            }
+             // }
+          //  }
         } catch (SQLException | IOException e) {
             e.printStackTrace();
         }
     }
-
-    public void SwitchToStart(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public static Client getClient(){
+        return client;
     }
 
 
@@ -107,25 +103,27 @@ public class HelloController implements Initializable {
     }
 
 
-    String[] book = {"cool", "breef", "trois"};
-    String choixBoutique;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         try {
             ClientService clientService = (ClientService) Naming.lookup("rmi://localhost:5099/Client");
+            List<Client> clients = clientService.getClients();
+            for (Client client : clients){
+                lvClients.getItems().add(client.getMail());
 
-        } catch (NotBoundException | MalformedURLException | RemoteException e) {
+            }
+            lvClients.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+                @Override
+                public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+                    choixClient = lvClients.getSelectionModel().getSelectedItem();
+                    inputname.setText(choixClient);
+                }
+            });
+        } catch (NotBoundException | MalformedURLException | RemoteException | SQLException e) {
             e.printStackTrace();
         }
 
-        lvBoutiques.getItems().addAll(book);
-        lvBoutiques.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-               choixBoutique = lvBoutiques.getSelectionModel().getSelectedItem();
-                inputboutique.setText(choixBoutique);
-            }
-        });
+
     }
 }

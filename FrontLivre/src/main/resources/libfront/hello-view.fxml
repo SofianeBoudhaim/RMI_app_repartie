@@ -8,11 +8,11 @@
 
 <Pane fx:id="lvBoutique" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="libfront.HelloController">
    <children>
-      <TitledPane animated="false" layoutX="390.0" layoutY="8.0" text="Boutiques">
+      <TitledPane animated="false" layoutX="390.0" layoutY="8.0" text="Clients">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="200.0">
                <children>
-                  <ListView fx:id="lvBoutiques" prefHeight="332.0" prefWidth="200.0" />
+                  <ListView fx:id="lvClients" prefHeight="332.0" prefWidth="200.0" />
                </children>
             </AnchorPane>
         </content>

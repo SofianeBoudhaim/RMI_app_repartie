@@ -1,5 +1,7 @@
 package libfront;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -49,13 +51,16 @@ public class VitrineController implements Initializable {
     void ajoutPanier(ActionEvent event) throws MalformedURLException, NotBoundException, RemoteException, SQLException {
         ClientService clientService = (ClientService) Naming.lookup("rmi://localhost:5099/Client");
         LivreService livreService = (LivreService) Naming.lookup("rmi://localhost:5099/Librairie");
-        //Livre l = livreService.getLivreByTitre(inputArticleID.getText());
+      /*  //Livre l = livreService.getLivreByTitre(inputArticleID.getText());
         Client cli = clientService.getClientByMail(inputname.getText());
         //cli.ajouterPanier(livreService.getLivreByID(inputArticleID.getPrefColumnCount()));
+        */
         int add = Integer.parseInt(inputArticleID.getText());
-        cli.ajouterAuPanier(livreService.getLivreByID(add));
-        System.out.println(cli.getPanier());
+        HelloController.getClient().ajouterAuPanier(livreService.getLivreByID(add));
+        System.out.println(HelloController.getClient().getPanier());
+
     }
+
 
     @FXML
     void supprimePanier(ActionEvent event) {
@@ -74,11 +79,13 @@ public class VitrineController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resource) {
         try {
+            inputname.setText( HelloController.getClient().getMail());
             LivreService livreService = (LivreService) Naming.lookup("rmi://localhost:5099/Librairie");
             List<Livre> livres = livreService.getLivres();
             for (Livre l :livres){
                 lvLivres.getItems().add(l);
             }
+
            // lvLivres.getItems().addAll(livreService.getLivres());
         } catch (NotBoundException | SQLException | RemoteException | MalformedURLException e) {
             e.printStackTrace();
