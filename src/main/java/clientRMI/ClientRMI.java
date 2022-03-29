@@ -20,6 +20,7 @@ public class ClientRMI {
         BanqueService banqueService = (BanqueService) Naming.lookup("rmi://localhost:5099/Banque");
 
         List<Livre> livres = livreService.getLivres();
+        livreService.ajouterLivre(new Livre("Nouveau livre", 5, 6, "Histoire de nouveauté"));
         System.out.println(livres);  //liste de tout les livres de la vitrine
 
         List<Client> clients = clientService.getClients();   //liste de tout les clients

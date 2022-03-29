@@ -27,7 +27,8 @@ public class LivreBDD {
             String titre = resultSet.getString("titre");
             double prix = resultSet.getDouble("prix");
             int quantite = resultSet.getInt("quantite");
-            l.add(new Livre(id, titre, prix, quantite));
+            String description = resultSet.getString("description");
+            l.add(new Livre(id, titre, prix, quantite, description));
         }
         connection.close();
         statement.close();
@@ -41,10 +42,11 @@ public class LivreBDD {
 
         if (!l.contains(livre)) {
             Connection connection = createConnexion();
-            PreparedStatement st = connection.prepareStatement("INSERT INTO livre (titre, prix, quantite) VALUES (?, ?, ?)");
+            PreparedStatement st = connection.prepareStatement("INSERT INTO livre (titre, prix, quantite, description) VALUES (?, ?, ?, ?)");
             st.setString(1, livre.getTitre());
             st.setDouble(2, livre.getPrix());
             st.setInt(3, 1);
+            st.setString(4, livre.getDescription());
 
             st.executeUpdate();
             st.close();
@@ -72,7 +74,8 @@ public class LivreBDD {
                 String titre = resultSet.getString("titre");
                 double prix = resultSet.getDouble("prix");
                 int quantite = resultSet.getInt("quantite");
-                l = new Livre(id, titre, prix, quantite);
+                String description = resultSet.getString("description");
+                l = new Livre(id, titre, prix, quantite, description);
             } while (resultSet.next());
         }
         connection.close();
@@ -97,7 +100,8 @@ public class LivreBDD {
                 int id = resultSet.getInt("id");
                 double prix = resultSet.getDouble("prix");
                 int quantite = resultSet.getInt("quantite");
-                l = new Livre(id, titre, prix, quantite);
+                String description = resultSet.getString("description");
+                l = new Livre(id, titre, prix, quantite, description);
             } while (resultSet.next());
         }
         connection.close();
