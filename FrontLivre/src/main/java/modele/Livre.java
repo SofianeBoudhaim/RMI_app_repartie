@@ -14,24 +14,28 @@ public class Livre implements Serializable {
     private String titre;
     private double prix;
     private int quantite;
+    private String description;
 
-    public Livre(int id, String titre, double prix, int quantite){
+    public Livre(int id, String titre, double prix, int quantite, String description){
         this.id = id;
         this.titre = titre;
         this.prix = prix;
         this.quantite = quantite;
+        this.description = description;
     }
 
-    public Livre(String titre, double prix, int quantite){
+    public Livre(String titre, double prix, int quantite, String description){
         this.titre = titre;
         this.prix = prix;
         this.quantite = quantite;
+        this.description = description;
     }
 
 
 
     public Livre() {
     }
+
 
     public int getId() {
         return id;
@@ -63,6 +67,14 @@ public class Livre implements Serializable {
 
     public void setQuantite(int quantite) {
         this.quantite = quantite;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override

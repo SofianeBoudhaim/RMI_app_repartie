@@ -20,7 +20,7 @@ public class ClientRMI {
         BanqueService banqueService = (BanqueService) Naming.lookup("rmi://localhost:5099/Banque");
 
         List<Livre> livres = livreService.getLivres();
-        livreService.ajouterLivre(new Livre("Nouveau livre", 5, 6, "Histoire de nouveauté"));
+        livreService.ajouterLivre(new Livre("Trombone", 5, 25, "Histoire du Trombone"));
         System.out.println(livres);  //liste de tout les livres de la vitrine
 
         List<Client> clients = clientService.getClients();   //liste de tout les clients
@@ -38,7 +38,7 @@ public class ClientRMI {
             banqueService.payer("SofianeBoudhaim", "Admin123", client.getPanier());
             System.out.println("Solde après payement " + +BanqueBDD.getSolde("SofianeBoudhaim", "Admin123"));
         }else{
-            System.out.println("Payement impossible, solde insuffisante");
+            System.out.println("Paiement impossible, solde insuffisante");
         }
     }
 }

@@ -25,7 +25,7 @@ public class Commande implements Serializable {
     }
 
     public void ajouterAuPanier(Livre livre) throws SQLException {
-            panier.add(livre);
+        panier.add(livre);
     }
 
     public void supprimerDuPanier(Livre livre){
@@ -35,7 +35,6 @@ public class Commande implements Serializable {
             }
         }
     }
-
 
     public double getTotalPanier(){
         double res = 0;

@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import modele.Client;
+import modele.Commande;
 import rmiInterface.BanqueService;
 
 import java.io.IOException;
@@ -36,6 +37,7 @@ public class PaimentController implements Initializable {
     private TextField inputName;
 
     Client client = HelloController.getClient();
+    Commande commande = HelloController.getClient().getPanier();
 
     @FXML
     void ControlPaiement(ActionEvent event) throws IOException, NotBoundException, SQLException {
@@ -46,7 +48,7 @@ public class PaimentController implements Initializable {
             boolean testSolde = banqueService.verifierSolde(inputName.getText(), inputPass.getText(), Double.parseDouble(mtAchat.getText()));
             System.out.println();
             if (testSolde){
-                banqueService.payer(inputName.getText(), inputPass.getText(), Double.parseDouble(mtAchat.getText()));
+                banqueService.payer(inputName.getText(), inputPass.getText(), commande);
                 Parent root = FXMLLoader.load(getClass().getResource("command-view.fxml"));
                 stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 scene = new Scene(root);

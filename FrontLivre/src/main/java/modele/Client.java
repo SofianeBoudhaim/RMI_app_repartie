@@ -81,7 +81,6 @@ public class Client implements Serializable {
     }
 
     public double getTotalPanier(){return panier.getTotalPanier();}
-
     @Override
     public String toString() {
         return "Client{" +

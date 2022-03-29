@@ -40,19 +40,19 @@ public class ArticleController {
     private Label labErreur;
 
     @FXML
-    void addArticle(ActionEvent event) throws MalformedURLException, NotBoundException, RemoteException, SQLException {
+    void addArticle(ActionEvent event) throws IOException, NotBoundException, SQLException {
         LivreService livreService = (LivreService) Naming.lookup("rmi://localhost:5099/Librairie");
-       /* boolean testAdd = livreService.ajouterLivre(new Livre(tfTitre.getText(),Double.parseDouble(tfPrix.getText()),Integer.parseInt(tfQuantite.getText()), tfDescription));
-        if(testAdd){
+         livreService.ajouterLivre(new Livre(tfTitre.getText(), Double.parseDouble(tfPrix.getText()), Integer.parseInt(tfQuantite.getText()), tfDescription.getText()));
+        //if(testAdd){
             Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        } else {
-            labErreur.setText("Erreur");
-        }
-        */
+      //  } else {
+        //    labErreur.setText("Erreur");
+        //}
+
     }
 
 
