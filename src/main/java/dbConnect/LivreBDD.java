@@ -45,7 +45,7 @@ public class LivreBDD {
             PreparedStatement st = connection.prepareStatement("INSERT INTO livre (titre, prix, quantite, description) VALUES (?, ?, ?, ?)");
             st.setString(1, livre.getTitre());
             st.setDouble(2, livre.getPrix());
-            st.setInt(3, 1);
+            st.setInt(3, livre.getQuantite());
             st.setString(4, livre.getDescription());
 
             st.executeUpdate();
