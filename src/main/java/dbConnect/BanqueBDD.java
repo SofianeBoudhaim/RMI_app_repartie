@@ -99,7 +99,7 @@ public class BanqueBDD {
             st.close();
             connection.close();
         } else {
-            System.out.println("Payement impossible");
+            System.out.println("Paiement impossible");
         }
         return false;
     }

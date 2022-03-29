@@ -43,19 +43,33 @@ public class PaimentController implements Initializable {
         BanqueService banqueService = (BanqueService) Naming.lookup("rmi://localhost:5099/Banque");
         boolean banqueConnect = banqueService.verifierConnexion(inputName.getText(), inputPass.getText());
         System.out.println(banqueConnect);
-        if (!banqueConnect){
-            System.out.println(banqueService.verifierSolde(inputName.getText(), inputPass.getText(), Double.parseDouble(mtAchat.getText())));
+        if (banqueConnect){
+            boolean testSolde = banqueService.verifierSolde(inputName.getText(), inputPass.getText(), Double.parseDouble(mtAchat.getText()));
+            if (testSolde){
+
+            banqueService.payer(inputName.getText(), inputPass.getText(), Double.parseDouble(mtAchat.getText()));
             Parent root = FXMLLoader.load(getClass().getResource("command-view.fxml"));
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+            }else {
+                retourFalse.setText("Solde insufissant");
+            }
         }else {
             retourFalse.setText("Connexion refusée");
 
         }
     }
 
+    @FXML
+    void SwitchToPanier(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("panier-view.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

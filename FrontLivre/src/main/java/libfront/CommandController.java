@@ -41,15 +41,16 @@ public class CommandController implements Initializable {
         stage.show();
     }
 
-    String strDate = dform.format(today);
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        String strDate = "Commande du "+dform.format(today);
         Commande client = HelloController.getClient().getPanier();
         List<Livre> livres = client.getPanier();
         System.out.println(strDate);
         lvArticles.getItems().addAll(livres);
         mtAchat.setText(String.valueOf(client.getTotalPanier()));
-       // nowdate.setText(strDate.toString());
+        nowdate.setText(strDate);
     }
 
 }

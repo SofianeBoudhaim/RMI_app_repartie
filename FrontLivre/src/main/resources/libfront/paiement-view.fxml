@@ -27,5 +27,6 @@
          </font>
       </Label>
       <Button layoutX="143.0" layoutY="303.0" mnemonicParsing="false" onAction="#ControlPaiement" text="Confirmer" />
+      <Button layoutX="26.0" layoutY="33.0" mnemonicParsing="false" onAction="#SwitchToPanier" text="Retour" />
    </children>
 </AnchorPane>
