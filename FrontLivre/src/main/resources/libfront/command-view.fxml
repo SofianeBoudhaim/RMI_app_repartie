@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="libfront.CommandController">
    <children>
-      <Button layoutX="284.0" layoutY="423.0" mnemonicParsing="false" onAction="#SwitchToVitrine" text="Connexion">
+      <Button layoutX="284.0" layoutY="423.0" mnemonicParsing="false" onAction="#SwitchToStart" text="Connexion">
          <font>
             <Font size="15.0" />
          </font></Button>
@@ -19,7 +19,7 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <Text layoutX="242.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="date">
+      <Text fx:id="nowdate" layoutX="242.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="date">
          <font>
             <Font size="16.0" />
          </font>

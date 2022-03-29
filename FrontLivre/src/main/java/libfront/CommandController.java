@@ -33,7 +33,7 @@ public class CommandController implements Initializable {
     private ListView<Livre> lvArticles;
     @FXML
     private Text mtAchat;
-    public void SwitchToVitrine(ActionEvent event) throws IOException {
+    public void SwitchToStart(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -50,7 +50,7 @@ public class CommandController implements Initializable {
         System.out.println(strDate);
         lvArticles.getItems().addAll(livres);
         mtAchat.setText(String.valueOf(client.getTotalPanier()));
-        nowdate.setText(strDate);
+       // nowdate.setText(strDate);
     }
 
 }

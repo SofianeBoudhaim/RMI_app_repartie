@@ -17,10 +17,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException, NotBoundException {
-        //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        //Scene scene = new Scene(fxmlLoader.load(), 600, 450);
         Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-        //root.getChildrenUnmodifiable().addAll(btnClient);
         Scene scene = new Scene(root);
         stage.setTitle("LibraiWeb");
         stage.setScene(scene);

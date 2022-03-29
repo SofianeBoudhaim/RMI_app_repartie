@@ -14,11 +14,9 @@ import modele.Client;
 import rmiInterface.BanqueService;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -37,6 +35,7 @@ public class PaimentController implements Initializable {
     @FXML
     private TextField inputName;
 
+    Client client = HelloController.getClient();
 
     @FXML
     void ControlPaiement(ActionEvent event) throws IOException, NotBoundException, SQLException {
@@ -45,20 +44,19 @@ public class PaimentController implements Initializable {
         System.out.println(banqueConnect);
         if (banqueConnect){
             boolean testSolde = banqueService.verifierSolde(inputName.getText(), inputPass.getText(), Double.parseDouble(mtAchat.getText()));
+            System.out.println();
             if (testSolde){
-
-            banqueService.payer(inputName.getText(), inputPass.getText(), Double.parseDouble(mtAchat.getText()));
-            Parent root = FXMLLoader.load(getClass().getResource("command-view.fxml"));
-            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-            }else {
+                banqueService.payer(inputName.getText(), inputPass.getText(), Double.parseDouble(mtAchat.getText()));
+                Parent root = FXMLLoader.load(getClass().getResource("command-view.fxml"));
+                stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } else {
                 retourFalse.setText("Solde insufissant");
             }
         }else {
             retourFalse.setText("Connexion refusée");
-
         }
     }
 
@@ -73,8 +71,7 @@ public class PaimentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Client client = HelloController.getClient();
-       inputName.setText(client.getNom()+""+client.getPrenom());
+       inputName.setText(client.getPrenom()+client.getNom());
        mtAchat.setText(String.valueOf(client.getPanier().getTotalPanier()));
 
     }
