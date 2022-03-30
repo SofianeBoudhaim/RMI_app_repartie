@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -23,12 +24,12 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <Text layoutX="77.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A bien été enregistré, pour un montant de ">
+      <Text layoutX="77.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A bien été enregistré, pour un montant de : €">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Text fx:id="mtAchat" layoutX="398.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mt" wrappingWidth="41.203125">
+      <Text fx:id="mtAchat" layoutX="405.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mt" wrappingWidth="41.203125">
          <font>
             <Font size="16.0" />
          </font>

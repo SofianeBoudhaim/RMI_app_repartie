@@ -59,7 +59,7 @@ public class CommandController implements Initializable {
         }
        // lvArticles.getItems().addAll(livres);
         //Ajout du montant de la commande et identité
-        mtAchat.setText(String.valueOf(client.getTotalPanier())+ " €");
+        mtAchat.setText(String.valueOf(client.getTotalPanier()));
         nowdate.setText(HelloController.getClient().getPrenom()+ " "+HelloController.getClient().getNom());
     }
 

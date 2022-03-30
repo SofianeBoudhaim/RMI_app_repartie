@@ -54,6 +54,7 @@ public class PaimentController implements Initializable {
             if (testSolde){
                 //Appel de la méthode pour procéder au paiement
                 banqueService.payer(inputName.getText(), inputPass.getText(), commande);
+                System.out.println("Paiement effectué de "+commande.getTotalPanier()+ " €" );
                 Parent root = FXMLLoader.load(getClass().getResource("command-view.fxml"));
                 stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
@@ -61,11 +62,14 @@ public class PaimentController implements Initializable {
                 stage.show();
             } else {
                 //Message d'erreur si solde insufissant
-                retourFalse.setText("Solde insufissant");
+                retourFalse.setText("Solde insufissant compte : "+inputName.getText());
+                System.out.println("Solde insufissant pour régler "+commande.getTotalPanier()+" €, sur le compte "+ inputName.getText());
             }
         }else {
             //Message d'erreur si mauvais login
             retourFalse.setText("Connexion refusée");
+            System.out.println("Probleme d'identification");
+
         }
     }
 

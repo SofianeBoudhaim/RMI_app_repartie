@@ -28,12 +28,12 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <Label fx:id="retourFalse" layoutX="361.0" layoutY="305.0" prefHeight="21.0" prefWidth="165.0" textFill="#ff1919">
+      <Label fx:id="retourFalse" layoutX="251.0" layoutY="324.0" prefHeight="73.0" prefWidth="326.0" textFill="#ff1919">
          <font>
-            <Font name="System Bold" size="17.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Button layoutX="256.0" layoutY="300.0" mnemonicParsing="false" onAction="#ControlPaiement" text="Confirmer">
+      <Button layoutX="256.0" layoutY="289.0" mnemonicParsing="false" onAction="#ControlPaiement" text="Confirmer">
          <font>
             <Font size="15.0" />
          </font></Button>
